@@ -1,5 +1,7 @@
+
 # Photography Portfolio and Admin
 # Admin interface for managing photography portfolio content, bookings, and contacts.
+
 ## Run Locally
 1. Clone the repository:
    ```bash
