@@ -19,7 +19,7 @@ export default function Skills({ skills, equipment, awards }: SkillsProps) {
             Expertise
           </h2>
           <h3 className="font-serif text-4xl md:text-5xl font-bold mb-8 leading-tight text-stone-900">
-            Skills & Equipment
+            Skills and Equipment
           </h3>
         </div>
 

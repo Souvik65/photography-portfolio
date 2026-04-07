@@ -30,7 +30,7 @@ export default function About({ about }: AboutProps) {
             className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl"
           >
             <Image
-              src={about.profile_image || 'https://picsum.photos/800/1200?random=2'}
+              src={about?.profile_image || '/images/placeholder-about.jpg'}
               alt="Photographer Profile"
               fill
               className="object-cover transition-opacity duration-1000 opacity-0"
@@ -52,19 +52,19 @@ export default function About({ about }: AboutProps) {
               About Me
             </h2>
             <h3 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight text-stone-900">
-              Hi, I&apos;m {about.name}. <br />
-              <span className="italic font-light text-stone-600">{about.subtitle}</span>
+              Hi, I&apos;m {about?.name || 'Photographer'}. <br />
+              <span className="italic font-light text-stone-600">{about?.subtitle}</span>
             </h3>
             <p className="text-lg text-stone-600 mb-8 leading-relaxed font-light">
-              {about.bio_1}
+              {about?.bio_1}
             </p>
             <p className="text-lg text-stone-600 mb-12 leading-relaxed font-light">
-              {about.bio_2}
+              {about?.bio_2}
             </p>
 
             {/* Specialties Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {about.specialties.map((item, index) => {
+              {about?.specialties?.map((item, index) => {
                 const Icon = ICON_MAP[item.icon] ?? Camera;
                 return (
                   <motion.div

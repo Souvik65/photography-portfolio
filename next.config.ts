@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   },
   // Allow any HTTPS image source (needed for admin-supplied URLs from Drive, Dropbox, etc.)
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

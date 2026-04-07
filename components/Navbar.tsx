@@ -57,7 +57,7 @@ export default function Navbar() {
         <Link href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2 group">
           <Camera className={`w-8 h-8 transition-colors ${isScrolled ? 'text-stone-900' : 'text-white group-hover:text-stone-300'}`} />
           <span className={`font-serif text-2xl font-bold tracking-tight transition-colors ${isScrolled ? 'text-stone-900' : 'text-white group-hover:text-stone-300'}`}>
-            Lens & Light
+            Lens Light
           </span>
         </Link>
 

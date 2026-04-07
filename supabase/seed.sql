@@ -96,11 +96,11 @@ INSERT INTO site_settings (key, value) VALUES
     ]
   }'::jsonb),
   ('footer', '{
-    "brand_name": "Lens & Light",
+    "brand_name": "Lens Light",
     "tagline": "Capturing life''s most beautiful moments with passion, precision, and a creative eye. Based in New York, available worldwide.",
     "address": "123 Studio Lane, Suite 400\nNew York, NY 10001",
     "phone": "+1 (555) 123-4567",
-    "email": "hello@lensandlight.com",
+    "email": "hello@lenslight.com",
     "instagram_url": "#",
     "twitter_url": "#",
     "facebook_url": "#"

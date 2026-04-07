@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -14,15 +14,15 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const prevTestimonial = () => {
+  const prevTestimonial = useCallback(() => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   useEffect(() => {
     if (testimonials.length === 0) return;
@@ -30,7 +30,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
       nextTestimonial();
     }, 5000);
     return () => clearInterval(timer);
-  }, [currentIndex, testimonials.length]);
+  }, [nextTestimonial, testimonials.length]);
 
   const variants = {
     enter: (direction: number) => {
@@ -59,7 +59,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
     <section id="testimonials" className="py-24 md:py-32 bg-stone-900 text-stone-50 overflow-hidden relative scroll-mt-20">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <Image
-          src="https://picsum.photos/1920/1080?random=24"
+          src="/images/placeholder-hero.jpg"
           alt="Background Texture"
           fill
           className="object-cover"
@@ -100,7 +100,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               <div className="flex flex-col items-center">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden mb-4 border-2 border-stone-700">
                   <Image
-                    src={testimonials[currentIndex].image || 'https://picsum.photos/150/150?random=99'}
+                    src={testimonials[currentIndex].image || '/images/placeholder-testimonial.jpg'}
                     alt={testimonials[currentIndex].name}
                     fill
                     className="object-cover transition-opacity duration-500 opacity-0"

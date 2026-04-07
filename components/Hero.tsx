@@ -38,7 +38,7 @@ export default function Hero({ hero }: HeroProps) {
         style={{ y }}
       >
         <Image
-          src={hero.bg_image || 'https://picsum.photos/1920/1080?random=1'}
+          src={hero?.bg_image || '/images/placeholder-hero.jpg'}
           alt="Cinematic photography background"
           fill
           priority
@@ -58,14 +58,14 @@ export default function Hero({ hero }: HeroProps) {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <p className="text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-4 text-stone-200">
-            {hero.tagline}
+            {hero?.tagline}
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            {hero.heading.split(' ').slice(0, -2).join(' ')} <br className="hidden md:block" />
-            <span className="italic font-light text-stone-300">{hero.heading.split(' ').slice(-2).join(' ')}</span>
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white">
+            {(hero?.heading || 'Photography Portfolio').split(' ').slice(0, -2).join(' ')} <br className="hidden md:block" />
+            <span className="italic font-light text-stone-300">{(hero?.heading || 'Photography Portfolio').split(' ').slice(-2).join(' ')}</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-stone-200 mb-10 font-light">
-            {hero.subheading}
+            {hero?.subheading}
           </p>
         </motion.div>
 

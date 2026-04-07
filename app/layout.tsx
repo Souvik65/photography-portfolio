@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'Lens & Light | Professional Photography',
+  title: 'Lens Light | Professional Photography',
   description: 'Capturing Moments That Last Forever. Explore the portfolio, skills, and book a session.',
 };
 

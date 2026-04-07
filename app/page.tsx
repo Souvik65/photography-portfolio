@@ -15,23 +15,39 @@ import { getSkills, getEquipment, getAwards } from '@/lib/db/skills';
 import { getSiteSettings } from '@/lib/db/settings';
 
 export default async function Home() {
-  const [
-    portfolioItems,
-    packages,
-    testimonials,
-    skills,
-    equipment,
-    awards,
-    settings,
-  ] = await Promise.all([
-    getPortfolioItems(),
-    getPricingPackages(),
-    getTestimonials(),
-    getSkills(),
-    getEquipment(),
-    getAwards(),
-    getSiteSettings(),
-  ]);
+  let portfolioItems: any[] = [];
+  let packages: any[] = [];
+  let testimonials: any[] = [];
+  let skills: any[] = [];
+  let equipment: any[] = [];
+  let awards: any[] = [];
+  let settings: any = {
+    hero: {},
+    about: { specialties: [] },
+    footer: {}
+  };
+
+  try {
+    const results = await Promise.all([
+      getPortfolioItems(),
+      getPricingPackages(),
+      getTestimonials(),
+      getSkills(),
+      getEquipment(),
+      getAwards(),
+      getSiteSettings(),
+    ]);
+
+    portfolioItems = results[0];
+    packages = results[1];
+    testimonials = results[2];
+    skills = results[3];
+    equipment = results[4];
+    awards = results[5];
+    settings = results[6] || settings;
+  } catch (error) {
+    console.error('Error fetching data for Home page:', error);
+  }
 
   return (
     <main className="min-h-screen">
